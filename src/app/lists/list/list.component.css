@@ -1,0 +1,17 @@
+.lists {
+  width: 200px;
+  float: left;
+  border-right: 1px solid #999999;
+}
+
+.list {
+  margin: 10px;
+}
+
+.title {
+  margin: 10px;
+}
+
+.add {
+  margin: 10px;
+}

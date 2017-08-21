@@ -1,0 +1,5 @@
+<div *ngFor="let list of lists$ | async; let i = index">
+  <app-list [list]="list"
+            [cards]="cards$ | async"
+  ></app-list>
+</div>
