@@ -19,6 +19,7 @@ export class ListsComponent implements OnInit {
   constructor(private store: Store<StoreModel>) { }
 
   ngOnInit() {
+    console.log("Hujow sto");
     this.lists$ = this.store.select(state => state.lists);
     this.cards$ = this.store.select(state => state.cards);
     console.log("aaa");
