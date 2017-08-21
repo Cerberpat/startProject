@@ -3,7 +3,7 @@ import {ListModel} from '../../shared/models/ListModel';
 import {CardModel} from '../../shared/models/CardModel';
 import {Store} from '@ngrx/store';
 import {StoreModel} from '../../shared/models/StoreModel';
-import {CardsAction} from '../../shared/actions/cards';
+import {AddCardsAction} from '../../shared/actions/cards';
 
 @Component({
   selector: 'app-list',
@@ -30,6 +30,6 @@ export class ListComponent implements OnInit {
       list_id: listId,
       title: 'asdasda'
     };
-    this.store.dispatch(new CardsAction(newCard));
+    this.store.dispatch(new AddCardsAction(newCard));
   }
 }
