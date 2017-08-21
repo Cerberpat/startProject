@@ -21,6 +21,7 @@ export class ListsComponent implements OnInit {
   ngOnInit() {
     this.lists$ = this.store.select(state => state.lists);
     this.cards$ = this.store.select(state => state.cards);
+    console.log("aaa");
   }
 
 }
