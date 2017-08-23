@@ -11,8 +11,10 @@ export const initialState: CardModel[] = [{
   list_id: 'b'
 }];
 
-export default function reducer(state = initialState, action: any): CardModel[] {
+export default function reducer(state = [], action: any): CardModel[] {
   switch (action.type) {
+    case cardsActions.GET_CARDS_SUCCESS:
+      return action.payload;
     case cardsActions.ADD_CARD:
       return  [ ...state, action.payload ];
     default: {

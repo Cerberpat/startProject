@@ -4,6 +4,7 @@ import {ListModel} from "../shared/models/ListModel";
 import {StoreModel} from "../shared/models/StoreModel";
 import { Store } from '@ngrx/store';
 import {CardModel} from "../shared/models/CardModel";
+import {GetCardsInitAction, GetListsInitAction} from "../shared/actions/cards";
 
 @Component({
   selector: 'app-lists',
@@ -19,6 +20,8 @@ export class ListsComponent implements OnInit {
   constructor(private store: Store<StoreModel>) { }
 
   ngOnInit() {
+    this.store.dispatch(new GetCardsInitAction());
+    this.store.dispatch(new GetListsInitAction());
     this.lists$ = this.store.select(state => state.lists);
     this.cards$ = this.store.select(state => state.cards);
   }
