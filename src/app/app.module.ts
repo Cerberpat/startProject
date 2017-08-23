@@ -10,6 +10,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {reducers} from './shared/reducers/index';
 import { ListComponent } from './lists/list/list.component';
 import { CardComponent } from './lists/list/card/card.component';
+import {CardsEffects} from './shared/efectsf/cards';
+import {ListsService} from './lists/lists.service';
+import {EffectsModule} from '@ngrx/effects';
 
 const appRoutes: Routes = [{
   path: '',
@@ -31,9 +34,10 @@ const appRoutes: Routes = [{
       {enableTracing: false} // <-- debugging purposes only
     ),
     //2/ Setup store for given reducers
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([CardsEffects])
   ],
-  providers: [],
+  providers: [ListsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
