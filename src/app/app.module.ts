@@ -3,28 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ListsComponent } from './lists/lists.component';
+import { MenuComponent } from './main/menu.component';
 import {HttpModule} from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {reducers} from './shared/reducers/index';
-import { ListComponent } from './lists/list/list.component';
-import { CardComponent } from './lists/list/card/card.component';
-import {CardsEffects} from './shared/efectsf/cards';
-import {ListsService} from './lists/lists.service';
+import {MenusEffects} from './shared/efectsf/menus';
+import {MenuService} from './main/menu.service';
 import {EffectsModule} from '@ngrx/effects';
 
 const appRoutes: Routes = [{
   path: '',
-  component: ListsComponent
+  component: MenuComponent
 }];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListsComponent,
-    ListComponent,
-    CardComponent
+    MenuComponent
   ],
   imports: [
     HttpModule,
@@ -35,9 +31,9 @@ const appRoutes: Routes = [{
     ),
     //2/ Setup store for given reducers
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([CardsEffects])
+    EffectsModule.forRoot([MenusEffects])
   ],
-  providers: [ListsService],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

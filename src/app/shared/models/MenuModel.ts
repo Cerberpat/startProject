@@ -1,6 +1,6 @@
-export interface CardModel {
+export interface MenuModel {
   id: string;
-  list_id: string;
+  menu_id: string;
   title: string;
   user?: string; // owner of the card
 }

@@ -3,15 +3,11 @@ import { Http } from '@angular/http';
 
 
 @Injectable()
-export class ListsService {
+export class MenuService {
 
   constructor(private http: Http) { }
 
-  public getLists() {
+  public getMenu() {
     return this.http.get('http://localhost:3001/api/lists').map(res => res.json());
-  }
-
-  public getCards() {
-    return this.http.get('http://localhost:3001/api/cards').map(res => res.json());
   }
 }

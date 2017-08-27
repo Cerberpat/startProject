@@ -1,7 +1,5 @@
-import {ListModel} from './ListModel';
-import {CardModel} from './CardModel';
+import {MenuModel} from './MenuModel';
 
 export interface StoreModel {
-  lists: ListModel[];
-  cards: CardModel[];
+  menu: MenuModel[];
 }

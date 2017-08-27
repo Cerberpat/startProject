@@ -1,5 +1,0 @@
-<div *ngFor="let list of lists$ | async; let i = index">
-  <app-list [list]="list"
-            [cards]="getCardForListId(cards$ | async, list.id)"
-  ></app-list>
-</div>
