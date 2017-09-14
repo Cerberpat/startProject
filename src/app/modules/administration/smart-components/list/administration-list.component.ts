@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {AdministrationViewModel} from '../../store/model/view/administration-view.model';
 import {AdministrationActions} from '../../store/actions/administration.actions';
-import {IApplicationState} from "../../../../comon/aplication-state";
+import {IApplicationState, administrationList} from "../../../../comon/aplication-state";
 
 @Component({
     selector: 'administration-list',
@@ -22,7 +22,7 @@ export class AdministrationListComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     public ngOnInit(): void {
-        this.administrationList$ = this.store.select(state => state.administrationListReducer);
+        this.administrationList$ = this.store.select(administrationList);
         this.store.dispatch(this.actions.loadList());
     }
 }

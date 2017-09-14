@@ -3,11 +3,10 @@ import {of} from 'rxjs/observable/of';
 import {Actions, Effect} from '@ngrx/effects';
 import {Observable} from 'rxjs/Observable';
 import {ProductsActions} from '../actions/products.actions';
-import {ProductsService} from '../products.service';
-import {productssPayloadToViewModel} from '../utilites/products-payload-utilites';
-import {ProductsViewModel} from '../model/view/products-view.model';
+import {ProductsService} from '../../products.service';
 import {IAction} from "../../../../comon/action";
 import 'rxjs/add/operator/switchMap';
+import {ProductsPayloadModel} from "../model/products-payload.model";
 
 @Injectable()
 export class ProductsEffects {
@@ -16,9 +15,8 @@ export class ProductsEffects {
         .ofType(ProductsActions.LOAD_LIST)
         .switchMap(() => {
             return this.service.list()
-                .map((response) => {
-                    const models: ProductsViewModel[] = productssPayloadToViewModel(response.json().payload.content);
-                    return this.actions.loadListSuccess(models);
+                .map((response: ProductsPayloadModel[]) => {
+                    return this.actions.loadListSuccess(response);
                 })
                 .catch((err) => {
                     return of(err);

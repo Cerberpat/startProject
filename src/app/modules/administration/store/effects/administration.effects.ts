@@ -8,6 +8,7 @@ import {administrationsPayloadToViewModel} from '../utilites/administration-payl
 import {AdministrationViewModel} from '../model/view/administration-view.model';
 import {IAction} from "../../../../comon/action";
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class AdministrationEffects {

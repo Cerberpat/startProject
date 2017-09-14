@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {OrdersViewModel} from '../../store/model/view/orders-view.model';
 import {OrdersActions} from '../../store/actions/orders.actions';
-import {IApplicationState} from "../../../../comon/aplication-state";
+import {IApplicationState, ordersList} from "../../../../comon/aplication-state";
 
 @Component({
     selector: 'orders-list',
@@ -22,7 +22,7 @@ export class OrdersListComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     public ngOnInit(): void {
-        this.ordersList$ = this.store.select(state => state.ordersListReducer);
+        this.ordersList$ = this.store.select(ordersList);
         this.store.dispatch(this.actions.loadList());
     }
 }

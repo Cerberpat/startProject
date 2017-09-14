@@ -2,9 +2,9 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {ProductsViewModel} from '../../store/model/view/products-view.model';
 import {ProductsActions} from '../../store/actions/products.actions';
-import {IApplicationState} from "../../../../comon/aplication-state";
+import {IApplicationState, productsList} from "../../../../comon/aplication-state";
+import {ProductsPayloadModel} from "../../store/model/products-payload.model";
 
 @Component({
     selector: 'products-list',
@@ -13,8 +13,7 @@ import {IApplicationState} from "../../../../comon/aplication-state";
 })
 
 export class ProductsListComponent implements OnInit {
-
-    public productsList$: Observable<ProductsViewModel[]>;
+    public productsList$: Observable<ProductsPayloadModel[]>;
 
     constructor(private store: Store<IApplicationState>,
                 private actions: ProductsActions,
@@ -22,7 +21,15 @@ export class ProductsListComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     public ngOnInit(): void {
-        this.productsList$ = this.store.select(state => state.productsListReducer);
+        this.productsList$ = this.store.select(productsList);
         this.store.dispatch(this.actions.loadList());
+    }
+
+    public handleCheckedItem(event) {
+
+    }
+
+    public handleSelectItem(event) {
+
     }
 }

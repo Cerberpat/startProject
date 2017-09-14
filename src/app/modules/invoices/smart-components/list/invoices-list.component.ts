@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {InvoicesViewModel} from '../../store/model/view/invoices-view.model';
 import {InvoicesActions} from '../../store/actions/invoices.actions';
-import {IApplicationState} from "../../../../comon/aplication-state";
+import {IApplicationState, invoicesList} from "../../../../comon/aplication-state";
 
 @Component({
     selector: 'invoices-list',
@@ -22,7 +22,7 @@ export class InvoicesListComponent implements OnInit {
                 private route: ActivatedRoute) { }
 
     public ngOnInit(): void {
-        this.invoicesList$ = this.store.select(state => state.invoicesListReducer);
+        this.invoicesList$ = this.store.select(invoicesList);
         this.store.dispatch(this.actions.loadList());
     }
 }

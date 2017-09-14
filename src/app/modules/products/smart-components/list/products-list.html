@@ -12,3 +12,12 @@
         </div>
     </div>
 </div>
+
+<p-dataTable [value]="productsList$ | async">
+    <p-header>Lista produktów</p-header>
+    <p-column field="id" header="id"></p-column>
+    <p-column field="kategoria" header="kategoria"></p-column>
+    <p-column field="nazwa" header="nazwa"></p-column>
+    <p-column field="magazyn" header="magazyn"></p-column>
+    <p-column field="cena" header="cena"></p-column>
+</p-dataTable>

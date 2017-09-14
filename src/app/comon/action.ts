@@ -1,10 +1,10 @@
 import {Action} from "@ngrx/store";
 
 export interface IAction extends Action {
-    type: any,
     payload: any
 }
 
+// type: any,
 /*
 export class BuyProductAction implements Action {
     readonly type = BUY_PRODUCT;

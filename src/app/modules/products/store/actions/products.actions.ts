@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ProductsPayloadModel} from '../model/payload/products-payload.model';
+import {ProductsPayloadModel} from '../model/products-payload.model';
 import {IAction} from "../../../../comon/action";
 
 @Injectable()
