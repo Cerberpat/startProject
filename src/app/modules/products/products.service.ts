@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {RequestHandlerService} from "../../comon/request-handler.service";
+import {ProductsPayloadModel} from "./store/model/products-payload.model";
 
 @Injectable()
 export class ProductsService {
@@ -9,8 +10,18 @@ export class ProductsService {
     constructor(private requestHandler: RequestHandlerService) {}
 
     public list() {
-        console.log(this.URL+this.URN_LIST);
-        return this.requestHandler.getEffects(this.URL+this.URN_LIST).map(res => res.json());
-        //return this.requestHandler.getEffects(this.LIST_URN, this.URL);
+        return this.requestHandler.getEffects(this.URN_LIST, null, this.URL).map(res => res.json());
+    }
+    
+    public item(id: number) {
+        return this.requestHandler.getEffects(this.URN_LIST+"/"+id, null, this.URL).map(res => res.json());
+    }
+
+    public save(product: ProductsPayloadModel) {
+        if(product.id === 0) {
+            return this.requestHandler.postEffects(this.URN_LIST, product, this.URL);
+        } else {
+            return this.requestHandler.putEffects(this.URN_LIST, product, this.URL);
+        }
     }
 }

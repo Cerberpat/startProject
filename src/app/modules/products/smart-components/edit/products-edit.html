@@ -1,0 +1,49 @@
+<form *ngIf="productForm" [formGroup]="productForm" novalidate (submit)="formSubmit()">
+    <div class="form-group">
+        <label for="kategoria">kategoria</label>
+        <input    formControlName="kategoria"
+                id="kategoria"
+                type="number"
+                class="form-control"
+                placeholder="Enter kategoria">
+        <div *ngIf="sended && !productForm.controls.kategoria.valid" class="alert alert-warning">
+            <strong>Warning!</strong> This field is empty
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nazwa">nazwa</label>
+        <input    formControlName="nazwa"
+                id="nazwa"
+                type="text"
+                class="form-control"
+                placeholder="Enter nazwa">
+        <div *ngIf="sended && !productForm.controls.nazwa.valid" class="alert alert-warning">
+            <strong>Warning!</strong> This field is empty
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="magazyn">magazyn</label>
+        <input 
+            formControlName="magazyn"
+            id="magazyn"
+            type="number"
+            class="form-control"
+            placeholder="Enter magazyn">
+        <div *ngIf="sended && !productForm.controls.magazyn.valid" class="alert alert-warning">
+            <strong>Warning!</strong> This field is empty
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cena">cena</label>
+        <input    
+            formControlName="cena"
+            id="cena"
+            type="number"
+            class="form-control"
+            placeholder="Enter cena">
+        <div *ngIf="sended && !productForm.controls.cena.valid" class="alert alert-warning">
+            <strong>Warning!</strong> This field is empty
+        </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>

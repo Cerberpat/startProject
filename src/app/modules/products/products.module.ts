@@ -8,6 +8,7 @@ import {ProductsService} from './products.service';
 import {ProductsEffects} from './store/effects/products.effects';
 import {ProductsActions} from './store/actions/products.actions';
 import {ProductsListComponent} from './smart-components/list/products-list.component';
+import {ProductsEditComponent} from './smart-components/edit/products-edit.component';
 import {ProductsMainComponent} from './products-main.component';
 import {ProductsRoutingModule} from './products.routing.module';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
@@ -15,7 +16,8 @@ import {DataTableModule,SharedModule} from 'primeng/primeng';
 @NgModule({
     declarations: [
         ProductsMainComponent,
-        ProductsListComponent
+        ProductsListComponent,
+        ProductsEditComponent
     ],
     imports: [
         DataTableModule, SharedModule,
